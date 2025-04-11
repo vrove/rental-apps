@@ -1,5 +1,5 @@
-import Onboarding from './opening/onboarding';
+import Register from './opening/register';
 
 export default function HomeScreen() {
-  return <Onboarding />;
+  return <Register />;
 }

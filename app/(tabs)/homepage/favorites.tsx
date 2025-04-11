@@ -7,7 +7,6 @@ const Favorite = () => {
 
     return (
         <View style={styles.container}>
-            {/* Header */}
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => router.back()}>
                     <Text style={styles.backButton}>{'<'}</Text>
@@ -15,7 +14,6 @@ const Favorite = () => {
                 <Text style={styles.headerTitle}>Favorite</Text>
             </View>
 
-            {/* Content */}
             <View style={styles.content}>
                 <Image
                     source={require('@/assets/images/favorite-img.png')}

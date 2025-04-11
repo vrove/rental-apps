@@ -8,7 +8,7 @@ const messages = [
         name: 'Steven L',
         message: 'Iya, tersedia, silahkan melakukan pembookingan terlebih dahulu.',
         time: '08:02',
-        avatar: 'https://avatar.iran.liara.run/public/3',
+        avatar: 'https://i.pinimg.com/736x/36/b2/58/36b258a660f7bfdb8a7bddf90ffd9482.jpg',
         status: 'online',
     },
     {
@@ -16,34 +16,13 @@ const messages = [
         name: 'Ibu Kony',
         message: 'Selamat datang di Rental Yacht',
         time: '08:02',
-        avatar: 'https://avatar.iran.liara.run/public/72',
+        avatar: 'https://community.pmi.org/images/profile-photos/36DFFFD0-C504-DD13-F149D2D5F997955C.jpg',
         status: 'read',
     },
 ];
 
 const Chat = () => {
     const router = useRouter();
-
-    const renderMessageItem = ({ item }: { item: typeof messages[0] }) => (
-        <TouchableOpacity style={styles.messageContainer}>
-            <Image source={{ uri: item.avatar }} style={styles.avatar} />
-            <View style={styles.messageContent}>
-                <Text style={styles.name}>{item.name}</Text>
-                <Text style={styles.message}>{item.message}</Text>
-            </View>
-            <View style={styles.messageMeta}>
-                <Text style={styles.time}>{item.time}</Text>
-                {item.status === 'online' ? (
-                    <View style={styles.onlineIndicator} />
-                ) : (
-                    <Image
-                        source={require('@/assets/images/read-icon.png')}
-                        style={styles.readIcon}
-                    />
-                )}
-            </View>
-        </TouchableOpacity>
-    );
 
     return (
         <View style={styles.container}>
@@ -56,7 +35,7 @@ const Chat = () => {
             renderItem={({ item }) => (
                 <TouchableOpacity
                 style={styles.messageContainer}
-                onPress={() => router.push(`/chats/chatView?id=${item.id}`)}
+                onPress={() => router.push(`/chats/chatView`)}
                 >
                 <Image source={{ uri: item.avatar }} style={styles.avatar} />
                 <View style={styles.messageContent}>

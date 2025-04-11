@@ -61,7 +61,7 @@ const ChatView = () => {
                 </TouchableOpacity>
                 <View style={styles.headerContent}>
                     <Image
-                        source={{ uri: 'https://avatar.iran.liara.run/public/3' }}
+                        source={{ uri: 'https://i.pinimg.com/736x/36/b2/58/36b258a660f7bfdb8a7bddf90ffd9482.jpg' }}
                         style={styles.avatar}
                     />
                     <Text style={styles.headerTitle}>Steven L</Text>

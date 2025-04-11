@@ -138,7 +138,7 @@ const Home = () => {
             </View>
             <View style={styles.promoContainer}>
                 <Text style={styles.promoTitle}>Hot Promo</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => router.push('/promo/promo')}>
                     <Text style={styles.seeMore}>See More</Text>
                 </TouchableOpacity>
             </View>
@@ -157,21 +157,23 @@ const Home = () => {
                 <Text style={styles.promoDescription}>
                     nikmati promo khusus lebaran, bisa mudik dan jalan-jalan tanpa takut kehabisan!
                 </Text>
-                <TouchableOpacity style={styles.orderButton}>
+                <TouchableOpacity style={styles.orderButton} onPress={() => router.push('/promo/promo')}>
                     <Text style={styles.orderButtonText}>Order Now</Text>
                 </TouchableOpacity>
             </ImageBackground>
-            <FlatList
-                data={getCategoryData()}
-                renderItem={renderVehicleItem}
-                keyExtractor={(item) => item.id.toString()}
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                contentContainerStyle={styles.vehicleList}
-            />
+            <TouchableOpacity onPress={() => router.push('/selectVehicle/select')}>
+                <FlatList
+                    data={getCategoryData()}
+                    renderItem={renderVehicleItem}
+                    keyExtractor={(item) => item.id.toString()}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={styles.vehicleList}
+                />
+            </TouchableOpacity>
             <View style={styles.popularContainer}>
                 <Text style={styles.popularTitle}>Populer</Text>
-                <View style={styles.popularGrid}>
+                <TouchableOpacity onPress={() => router.push('/selectVehicle/select')} style={styles.popularGrid}>
                     {getCategoryData().map((item) => (
                         <View key={item.id} style={styles.popularCard}>
                             <Image source={{uri: item.image}} style={styles.popularImage} />
@@ -180,13 +182,12 @@ const Home = () => {
                             <Text style={styles.popularUsage}>{item.usage}</Text>
                         </View>
                     ))}
-                </View>
+                </TouchableOpacity>
             </View>
             <View style={styles.mapButtonContainer}>
                 <TouchableOpacity
                     style={styles.mapButton}
                     onPress={() => {
-                        // Navigate to the map screen
                         router.push('/maps/maps');
                     }}
                 >
@@ -202,7 +203,7 @@ const Home = () => {
 };
 
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     scrollContent: {
         paddingBottom: 80,
     },

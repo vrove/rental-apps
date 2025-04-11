@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import CheckBox from '@react-native-community/checkbox';
+
 import { useRouter } from 'expo-router';
 
 const { width } = Dimensions.get('window');
 
-const Login = () => {
+const Register = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [isChecked, setIsChecked] = useState(false);
     const router = useRouter();
+
+    const isButtonEnabled = phoneNumber.length > 0 && isChecked;
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={() => router.push('/opening/onboarding')} style={{ marginBottom: 20 }}>
-                <Text style={styles.backButton}>{'<'}</Text>
-            </TouchableOpacity>
-            <Text style={styles.title}>Welcome!</Text>
-            <Text style={styles.subtitle}>lets start your trip</Text>
+            <Text style={styles.title}>Let's Start!</Text>
+            <Text style={styles.subtitle}>Input your phone number</Text>
             <View style={styles.inputContainer}>
                 <Text style={styles.countryCode}>+62</Text>
                 <TextInput
@@ -26,15 +28,24 @@ const Login = () => {
                     onChangeText={setPhoneNumber}
                 />
             </View>
+
+            <TouchableOpacity
+                style={styles.customCheckboxContainer}
+                onPress={() => setIsChecked(!isChecked)}
+            >
+                <View style={[styles.customCheckbox, isChecked && styles.customCheckboxChecked]} />
+                <Text style={styles.checkboxLabel}>Saya menyetujui syarat & ketentuan dan kebijakan privasi </Text>
+            </TouchableOpacity>
+
             <TouchableOpacity
                 style={[
                     styles.button,
-                    phoneNumber.length > 0 ? styles.buttonActive : styles.buttonInactive,
+                    isButtonEnabled ? styles.buttonActive : styles.buttonInactive,
                 ]}
-                disabled={phoneNumber.length === 0}
+                disabled={!isButtonEnabled}
                 onPress={() => {
-                    if (phoneNumber.length > 0) {
-                        router.push('/homepage/home');
+                    if (isButtonEnabled) {
+                        router.push('/opening/otp');
                     }
                 }}
             >
@@ -51,13 +62,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingTop: 50,
     },
-    backButton: {
-        fontSize: 40,
-        color: '#1E1E99',
-        marginBottom: 20,
-        fontWeight: 200,
-    },
     title: {
+        marginTop: 40,
         fontSize: 28,
         fontWeight: 'bold',
         color: '#1E1E99',
@@ -89,6 +95,14 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#000',
     },
+    checkboxContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    checkbox: {
+        marginRight: 10,
+    },
     button: {
         marginTop: '110%',
         width: width - 40,
@@ -109,6 +123,26 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
+    customCheckboxContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    customCheckbox: {
+        width: 20,
+        height: 20,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 3,
+        marginRight: 10,
+    },
+    customCheckboxChecked: {
+        backgroundColor: '#1E1E99',
+    },
+    checkboxLabel: {
+        fontSize: 14,
+        color: '#555',
+    },
 });
 
-export default Login;
+export default Register;

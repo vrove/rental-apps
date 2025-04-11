@@ -22,10 +22,11 @@ const MorePage = () => {
 
             <View style={styles.profileSection}>
                 <Image
-                    source={{ uri: 'https://avatar.iran.liara.run/public/72' }}
+                    source={{ uri: 'https://cdn-icons-png.flaticon.com/512/12225/12225881.png' }}
                     style={styles.profileImage}
                 />
-                <Text style={styles.profileName}>Ayuni Anastasya</Text>
+                <Text style={styles.profileName}>Chanlie</Text>
+                <Text style={styles.profileJoin}>Bergabung sejak Apr 2025</Text>
                 <TouchableOpacity onPress={() => router.push('/editProfile/editProfile')} style={styles.editProfileButton}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Image
@@ -51,16 +52,16 @@ const MorePage = () => {
                         source={require('@/assets/images/trips.png')}
                         style={styles.menuIcon}
                     />
-                    <Text style={styles.menuText}>Trips</Text>
+                    <Text style={styles.menuText} onPress={() => router.push('/homepage/trips')}>Trips</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.menuItem}>
+                <TouchableOpacity style={styles.menuItem}onPress={() => router.push('/promo/promo')}>
                     <Image
                         source={require('@/assets/images/promo.png')}
                         style={styles.menuIcon}
                     />
                     <Text style={styles.menuText}>Promo</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.menuItem}>
+                <TouchableOpacity style={styles.menuItem} onPress={() => router.push('/settings/setting')}>
                     <Image
                         source={require('@/assets/images/settings.png')}
                         style={styles.menuIcon}
@@ -137,6 +138,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: 'bold',
         color: '#333',
+        marginBottom: 10,
+    },
+    profileJoin: {
+        fontSize: 14,
+        color: '#666',
         marginBottom: 10,
     },
     editProfileButton: {
