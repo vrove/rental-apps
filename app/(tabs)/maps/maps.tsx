@@ -48,7 +48,7 @@ const Maps = () => {
             <View style={styles.header}>
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10 }}>
                     <TouchableOpacity onPress={() => { router.push('/homepage/home') }}>
-                        <Text style={styles.backButton}>{'<'}</Text>
+                        <Image source={require('@/assets/images/back.png')} style={{ width: 13, height: 30, tintColor: '#1E1E99' }} />
                     </TouchableOpacity>
                     <Text style={{ fontSize: 18, color: '#fff'}}>Maps</Text>
                 </View>
