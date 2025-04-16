@@ -9,7 +9,7 @@ const Notification = () => {
         <View style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => router.back()}>
-                    <Text style={styles.backButton}>{'<'}</Text>
+                    <Image source={require('@/assets/images/back.png')} style={{ width: 13, height: 30, tintColor: '#fff' }} />
                 </TouchableOpacity>
                 <Text style={styles.headerTitle}>Notification</Text>
             </View>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     headerTitle: {
-        marginLeft: 130,
+        marginLeft: 120,
         fontSize: 18,
         fontWeight: 'bold',
         color: '#fff',

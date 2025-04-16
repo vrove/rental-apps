@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Switch, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Switch, TouchableOpacity, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const SettingPage = () => {
@@ -13,7 +13,7 @@ const SettingPage = () => {
         <View style={styles.container}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => router.push('/homepage/more')}>
-                    <Text style={styles.backButton}>{'<'}</Text>
+                <Image source={require('@/assets/images/back.png')} style={{ width: 13, height: 30, tintColor: '#fff' }} />
                 </TouchableOpacity>
                 <Text style={styles.headerTitle}>Settings</Text>
             </View>

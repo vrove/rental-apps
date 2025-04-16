@@ -57,7 +57,7 @@ const ChatView = () => {
 
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => router.push('/homepage/chat')}>
-                    <Text style={styles.backButton}>{'<'}</Text>
+                <Image source={require('@/assets/images/back.png')} style={{ width: 13, height: 30, tintColor: '#fff' }} />
                 </TouchableOpacity>
                 <View style={styles.headerContent}>
                     <Image

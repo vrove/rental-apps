@@ -40,7 +40,7 @@ const Home = () => {
         <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => router.push('/opening/login')}>
-                    <Text style={styles.backButton}>{'<'}</Text>
+                    <Image source={require('@/assets/images/back.png')} style={{ width: 13, height: 30, tintColor: '#fff' }} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => router.push('/help/help')} style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Text style={styles.helpButton}>need help?</Text>

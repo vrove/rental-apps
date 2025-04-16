@@ -27,7 +27,7 @@ const Chat = () => {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => router.back()} style={{ marginBottom: 20 }}>
-            <Text style={styles.backButton}>{'<'}</Text>
+            <Image source={require('@/assets/images/back.png')} style={{ width: 13, height: 30, tintColor: '#1E1E99' }} />
             </TouchableOpacity>
             <Text style={styles.header}>Your Message</Text>
             <FlatList

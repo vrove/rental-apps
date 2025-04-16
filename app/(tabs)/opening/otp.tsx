@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const OTP = () => {
@@ -18,7 +18,7 @@ const OTP = () => {
         <View style={styles.container}>
             {/* Header */}
             <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-                <Text style={styles.backButtonText}>{'<'}</Text>
+                <Image source={require('@/assets/images/back.png')} style={{ width: 13, height: 30, tintColor: '#1E1E99' }} />
             </TouchableOpacity>
 
             {/* Title */}

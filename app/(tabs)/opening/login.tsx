@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Dimensions, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 
 const { width } = Dimensions.get('window');
@@ -11,7 +11,7 @@ const Login = () => {
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress={() => router.push('/opening/onboarding')} style={{ marginBottom: 20 }}>
-                <Text style={styles.backButton}>{'<'}</Text>
+                <Image source={require('@/assets/images/back.png')} style={{ width: 13, height: 30, tintColor: '#1E1E99' }} />
             </TouchableOpacity>
             <Text style={styles.title}>Welcome!</Text>
             <Text style={styles.subtitle}>lets start your trip</Text>
